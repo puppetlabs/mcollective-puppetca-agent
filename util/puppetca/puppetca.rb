@@ -62,7 +62,7 @@ module MCollective
 
         Shell.new('%s list --all --color=none' % @puppetca, :stdout => output).runcommand
 
-        output.each do |line|
+        output.lines do |line|
           result = line.gsub("\"", '').split("\s")
 
           if result[0] == '+'
